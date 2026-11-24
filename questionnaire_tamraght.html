@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Étude de marché | Tamraght</title>
+<style>
+:root{--sky:#8ed8ed;--navy:#173653;--green:#b9dfbd;--yellow:#f6d76b;--bg:#f1f9fb}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 12px;font-family:Arial,sans-serif;background:var(--bg);color:var(--navy)}
+.container{max-width:720px;margin:auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 30px #17365318}
+header{background:linear-gradient(135deg,var(--sky),var(--green));padding:32px 22px;text-align:center}
+.sun{font-size:30px;color:#d5a91c}.tag{display:inline-block;background:var(--yellow);padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold}
+h1{font-size:25px;margin:13px 0;color:var(--navy)}header p{line-height:1.55;font-size:14px;color:#29475b}
+.content{padding:24px}.progress-info{display:flex;justify-content:space-between;font-size:12px;margin-bottom:8px}
+.progress{height:7px;background:#e9f0f2;border-radius:20px;overflow:hidden;margin-bottom:24px}.bar{height:100%;width:0;background:#55b8d1;transition:width .2s}
+.section{background:#eaf7fa;border-left:5px solid var(--sky);padding:13px;border-radius:8px;margin:24px 0 18px;font-weight:bold}
+.question{margin-bottom:23px}.question h3{font-size:15px;line-height:1.5;margin:0 0 11px}
+.options{display:grid;gap:8px}.option{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid #e0e9ed;border-radius:9px;cursor:pointer;font-size:14px}
+.option:hover,.option:has(input:checked){background:#eaf7fa;border-color:#55b8d1}
+input{accent-color:#247a91;width:17px;height:17px;flex-shrink:0}
+button{width:100%;border:0;padding:15px;border-radius:10px;background:var(--navy);color:white;font-size:16px;font-weight:bold;cursor:pointer;margin-top:14px}
+button:disabled{opacity:.6;cursor:wait}
+footer{text-align:center;padding:17px;background:#f2faf9;color:#607b83;font-size:12px}
+#success{display:none;text-align:center;padding:35px 15px}#success h2{color:#267b59}
+@media(max-width:500px){.content{padding:18px}header{padding:26px 17px}h1{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header><div class="sun">☀</div><span class="tag">ÉTUDE DE MARCHÉ</span>
+<h1>Votre avis nous intéresse !</h1>
+<p>Dans le cadre d'une étude sur la présence digitale de l'entreprise X, nous souhaitons connaître votre expérience et votre perception des différents canaux digitaux.</p>
+<p><strong>2 à 3 minutes · Questionnaire anonyme</strong></p></header>
+<div class="content">
+<form id="survey">
+<div class="progress-info"><span>Votre questionnaire</span><span id="progressText">0 / 12</span></div>
+<div class="progress"><div class="bar" id="progressBar"></div></div>
+<div class="section">01 — Votre profil</div>
+<div class="question"><h3>1. Dans quelle tranche d'âge vous situez-vous ?</h3><div class="options">
+<label class="option"><input type="radio" name="age" value="Moins de 18 ans" required>Moins de 18 ans</label>
+<label class="option"><input type="radio" name="age" value="18 à 25 ans">18 à 25 ans</label>
+<label class="option"><input type="radio" name="age" value="26 à 35 ans">26 à 35 ans</label>
+<label class="option"><input type="radio" name="age" value="36 à 45 ans">36 à 45 ans</label>
+<label class="option"><input type="radio" name="age" value="Plus de 45 ans">Plus de 45 ans</label></div></div>
+<div class="question"><h3>2. Êtes-vous déjà client(e) de l'entreprise X ?</h3><div class="options">
+<label class="option"><input type="radio" name="client" value="Oui" required>Oui</label><label class="option"><input type="radio" name="client" value="Non">Non</label></div></div>
+<div class="section">02 — Présence digitale</div>
+<div class="question"><h3>3. Connaissez-vous la présence digitale de l'entreprise X ?</h3><div class="options">
+<label class="option"><input type="radio" name="presence" value="Oui" required>Oui</label><label class="option"><input type="radio" name="presence" value="Non">Non</label></div></div>
+<div class="question"><h3>4. Sur quels canaux digitaux avez-vous déjà rencontré l'entreprise X ? <small>(Plusieurs choix possibles)</small></h3><div class="options">
+<label class="option"><input type="checkbox" name="canaux_connus" value="Instagram">Instagram</label><label class="option"><input type="checkbox" name="canaux_connus" value="Facebook">Facebook</label><label class="option"><input type="checkbox" name="canaux_connus" value="TikTok">TikTok</label><label class="option"><input type="checkbox" name="canaux_connus" value="Google / Google Maps">Google / Google Maps</label><label class="option"><input type="checkbox" name="canaux_connus" value="WhatsApp">WhatsApp</label><label class="option"><input type="checkbox" name="canaux_connus" value="Site web">Site web</label><label class="option"><input type="checkbox" name="canaux_connus" value="Aucun">Aucun</label></div></div>
+<div class="question"><h3>5. Quel canal utilisez-vous le plus pour rechercher des informations sur une entreprise ?</h3><div class="options">
+<label class="option"><input type="radio" name="canal_recherche" value="Instagram" required>Instagram</label><label class="option"><input type="radio" name="canal_recherche" value="Facebook">Facebook</label><label class="option"><input type="radio" name="canal_recherche" value="TikTok">TikTok</label><label class="option"><input type="radio" name="canal_recherche" value="Google / Google Maps">Google / Google Maps</label><label class="option"><input type="radio" name="canal_recherche" value="WhatsApp">WhatsApp</label><label class="option"><input type="radio" name="canal_recherche" value="Site web">Site web</label></div></div>
+<div class="question"><h3>6. Comment trouvez-vous les informations publiées par l'entreprise X ?</h3><div class="options">
+<label class="option"><input type="radio" name="clarte" value="Très claires" required>Très claires</label><label class="option"><input type="radio" name="clarte" value="Claires">Claires</label><label class="option"><input type="radio" name="clarte" value="Moyennement claires">Moyennement claires</label><label class="option"><input type="radio" name="clarte" value="Peu claires">Peu claires</label><label class="option"><input type="radio" name="clarte" value="Je ne sais pas">Je ne sais pas</label></div></div>
+<div class="section">03 — Votre parcours d'achat</div>
+<div class="question"><h3>7. Comment avez-vous découvert l'entreprise X ?</h3><div class="options">
+<label class="option"><input type="radio" name="decouverte" value="Réseaux sociaux" required>Réseaux sociaux</label><label class="option"><input type="radio" name="decouverte" value="Google / Google Maps">Google / Google Maps</label><label class="option"><input type="radio" name="decouverte" value="Recommandation">Recommandation d'un proche</label><label class="option"><input type="radio" name="decouverte" value="Passage devant l'établissement">Passage devant l'établissement</label><label class="option"><input type="radio" name="decouverte" value="Autre">Autre</label></div></div>
+<div class="question"><h3>8. Les contenus digitaux de l'entreprise X influencent-ils votre décision d'achat ?</h3><div class="options">
+<label class="option"><input type="radio" name="influence" value="Beaucoup" required>Beaucoup</label><label class="option"><input type="radio" name="influence" value="Moyennement">Moyennement</label><label class="option"><input type="radio" name="influence" value="Peu">Peu</label><label class="option"><input type="radio" name="influence" value="Pas du tout">Pas du tout</label><label class="option"><input type="radio" name="influence" value="Je ne connais pas ses contenus">Je ne connais pas ses contenus</label></div></div>
+<div class="question"><h3>9. Consultez-vous les avis et commentaires en ligne avant de choisir une entreprise ?</h3><div class="options">
+<label class="option"><input type="radio" name="avis" value="Toujours" required>Toujours</label><label class="option"><input type="radio" name="avis" value="Souvent">Souvent</label><label class="option"><input type="radio" name="avis" value="Parfois">Parfois</label><label class="option"><input type="radio" name="avis" value="Jamais">Jamais</label></div></div>
+<div class="question"><h3>10. Quel canal digital vous encourage le plus à passer à l'achat ?</h3><div class="options">
+<label class="option"><input type="radio" name="canal_achat" value="Instagram" required>Instagram</label><label class="option"><input type="radio" name="canal_achat" value="Facebook">Facebook</label><label class="option"><input type="radio" name="canal_achat" value="TikTok">TikTok</label><label class="option"><input type="radio" name="canal_achat" value="Google / Google Maps">Google / Google Maps</label><label class="option"><input type="radio" name="canal_achat" value="WhatsApp">WhatsApp</label><label class="option"><input type="radio" name="canal_achat" value="Site web">Site web</label><label class="option"><input type="radio" name="canal_achat" value="Aucun">Aucun</label></div></div>
+<div class="section">04 — Votre avis</div>
+<div class="question"><h3>11. Globalement, comment évaluez-vous la présence digitale de l'entreprise X ?</h3><div class="options">
+<label class="option"><input type="radio" name="evaluation" value="Très satisfaisante" required>Très satisfaisante</label><label class="option"><input type="radio" name="evaluation" value="Satisfaisante">Satisfaisante</label><label class="option"><input type="radio" name="evaluation" value="Moyenne">Moyenne</label><label class="option"><input type="radio" name="evaluation" value="Insatisfaisante">Insatisfaisante</label><label class="option"><input type="radio" name="evaluation" value="Impossible à évaluer">Je ne peux pas l'évaluer</label></div></div>
+<div class="question"><h3>12. Selon vous, que devrait améliorer l'entreprise X dans sa communication digitale ?</h3><div class="options">
+<label class="option"><input type="radio" name="amelioration" value="Qualité des publications" required>La qualité des publications</label><label class="option"><input type="radio" name="amelioration" value="Fréquence des publications">La fréquence des publications</label><label class="option"><input type="radio" name="amelioration" value="Informations produits et services">Les informations sur les produits et services</label><label class="option"><input type="radio" name="amelioration" value="Rapidité des réponses">La rapidité des réponses aux messages</label><label class="option"><input type="radio" name="amelioration" value="Avis clients">Les avis et commentaires clients</label><label class="option"><input type="radio" name="amelioration" value="Autre">Autre</label></div></div>
+<button type="submit" id="submitBtn">Envoyer mes réponses →</button>
+</form>
+<div id="success"><div style="font-size:45px">🌿</div><h2>Merci pour votre participation !</h2><p>Votre avis est précieux pour notre étude.</p></div>
+</div>
+<footer>Merci de contribuer à notre étude de marché · Tamraght ☀</footer>
+</div>
+<script>
+const SCRIPT_URL = "COLLER_ICI_URL_GOOGLE_APPS_SCRIPT";
+const form = document.getElementById("survey");
+const btn = document.getElementById("submitBtn");
+function updateProgress(){
+ const questions=[...form.querySelectorAll(".question")];let answered=0;
+ questions.forEach(q=>{
+  const inputs=[...q.querySelectorAll("input")];
+  if(inputs.some(i=>i.type==="radio"&&i.checked)||inputs.some(i=>i.type==="checkbox"&&i.checked))answered++;
+ });
+ document.getElementById("progressText").textContent=answered+" / 12";
+ document.getElementById("progressBar").style.width=(answered/12*100)+"%";
+}
+form.addEventListener("change",updateProgress);
+form.addEventListener("submit",async e=>{
+ e.preventDefault();if(!form.reportValidity())return;
+ if(SCRIPT_URL.includes("COLLER_ICI")){alert("Connectez d'abord le formulaire à Google Sheets en ajoutant l'URL Google Apps Script.");return;}
+ btn.disabled=true;btn.textContent="Envoi en cours...";
+ const fd=new FormData(form);const data=Object.fromEntries(fd.entries());
+ data.canaux_connus=fd.getAll("canaux_connus");
+ try{
+  await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
+  form.style.display="none";document.getElementById("success").style.display="block";
+ }catch(err){alert("Un problème est survenu. Veuillez réessayer.");btn.disabled=false;btn.textContent="Envoyer mes réponses →";}
+});
+</script>
+</body>
+</html>
